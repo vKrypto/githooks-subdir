@@ -1,12 +1,13 @@
-- repo: local
-  hooks:
-    - id: pytest
-      name: Run Pytest
-      entry: pytest
-      language: system
-      stages: [pre-push]
-      types: [python]
-      files: ^project2/
+repos:
+  - repo: local
+    hooks:
+      - id: pytest
+        name: Run Pytest
+        entry: pytest
+        language: system
+        stages: [pre-push]
+        types: [python]
+        files: ^project2/
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
