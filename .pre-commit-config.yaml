@@ -9,5 +9,6 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/pre-commit/mirrors-isort
+    rev: ''
     hooks:
       - id: isort
