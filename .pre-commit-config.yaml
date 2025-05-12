@@ -28,21 +28,21 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-      - id: check-added-large-files  # warn if large files are added
+      - id: check-added-large-files  # Warn if large files are staged for commit (prevents committing binaries or data dumps)
         files: ^project2/
-      - id: check-merge-conflict  # check for unresolved merge conflicts
+      - id: check-merge-conflict  # Detect unresolved Git conflict markers like <<<<<<<, =======, >>>>>>>
         files: ^project2/
-      - id: check-yaml  # validate YAML syntax
+      - id: check-yaml  # Ensure all .yaml/.yml files are valid and parseable
         files: ^project2/
-      - id: check-ast  # ensure Python files are syntactically valid
+      - id: check-ast  # Ensure Python files are syntactically valid (AST parseable)
         files: ^project2/
-      - id: check-case-conflict  # catch filename conflicts on case-insensitive systems
+      - id: check-case-conflict  # Prevent files with the same name but different cases (important for case-insensitive filesystems)
         files: ^project2/
-      - id: trailing-whitespace
+      - id: trailing-whitespace  # Remove any trailing whitespace at the end of lines (enforces clean diffs)
         files: ^project2/
-      - id: end-of-file-fixer
+      - id: end-of-file-fixer  # Ensure each file ends with exactly one newline (common POSIX convention)
         files: ^project2/
-      - id: debug-statements
+      - id: debug-statements  # Prevent accidental use of `print()` or `pdb.set_trace()` in committed code
         files: ^project2/
 
   # Python security linter
