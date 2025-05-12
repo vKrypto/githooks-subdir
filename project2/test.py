@@ -2,7 +2,7 @@
 
 
 
-def test_1(x: int):
+def fubc(x: int):
     print(x)
     return x + 1
 
@@ -10,4 +10,7 @@ def test_1(x: int):
 
 
 
-test_1(3)
+def test_1():
+    fubc(4)
+
+    
