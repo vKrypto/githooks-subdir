@@ -1,4 +1,48 @@
+# pre-commit hooks (run before committing changes)
 repos:
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        files: ^project2/
+        stages: [pre-commit]
+
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1
+    hooks:
+      - id: isort
+        files: ^project2/
+        stages: [pre-commit]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.2.0
+    hooks:
+      - id: flake8
+        files: ^project2/
+        stages: [pre-commit]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.15.0
+    hooks:
+      - id: mypy
+        files: ^project2/
+        stages: [pre-commit]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        files: ^project2/
+      - id: check-merge-conflict
+        files: ^project2/
+      - id: check-yaml
+        files: ^project2/
+      - id: check-ast
+        files: ^project2/
+      - id: check-case-conflict
+        files: ^project2/
+
+# pre-push hooks (run before pushing changes)
   - repo: local
     hooks:
       - id: pytest
@@ -22,32 +66,3 @@ repos:
       - id: mypy
         files: ^project2/
         stages: [pre-push]
-
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
-    hooks:
-      - id: check-added-large-files
-        files: ^project2/
-      - id: check-merge-conflict
-        files: ^project2/
-      - id: check-yaml
-        files: ^project2/
-      - id: check-ast
-        files: ^project2/
-      - id: check-case-conflict
-        files: ^project2/
-
-  - repo: https://github.com/psf/black
-    rev: 25.1.0
-    hooks:
-      - id: black
-        files: ^project2/
-        stages: [pre-commit]
-
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: 'v5.10.1'
-    hooks:
-      - id: isort
-        files: ^project2/
-        stages: [pre-commit]
-
