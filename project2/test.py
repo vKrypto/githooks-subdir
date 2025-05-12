@@ -3,8 +3,5 @@ def fubc(x: int):
     return x + 1
 
 
-
-
-
 def test_1():
     fubc(4)
