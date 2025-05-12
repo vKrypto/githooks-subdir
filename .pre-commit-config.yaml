@@ -45,24 +45,26 @@ repos:
       - id: debug-statements
         files: ^project2/
 
+  # Python security linter
   - repo: https://github.com/PyCQA/bandit
     rev: 1.7.8
     hooks:
       - id: bandit
         files: ^project2/
         stages: [pre-push]
-
-# Run specific hooks before pushing changes
+  
+  # run pytest
   - repo: local
     hooks:
       - id: pytest
         name: Run Pytest  # run tests before pushing
         entry: pytest
         language: system  # use system-installed pytest
-        stages: [pre-push]
+        stages: [pre-commit]
         types: [python]
         files: ^project2/
 
+# Run specific hooks before pushing changes
   # flake8: enforces Python PEP style rules:
   - repo: https://github.com/pycqa/flake8
     rev: 7.2.0
