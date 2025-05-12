@@ -17,12 +17,6 @@ repos:
       - id: trailing-whitespace
         files: ^project2/
 
-  # - repo: https://github.com/psf/black
-  #   rev: 25.1.0
-  #   hooks:
-  #     - id: black
-  #       files: ^project2/
-
   - repo: https://github.com/pre-commit/mirrors-isort
     rev: 'v5.10.1'
     hooks:
@@ -39,4 +33,10 @@ repos:
     rev: v1.15.0
     hooks:
       - id: mypy
+        files: ^project2/
+
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
         files: ^project2/
