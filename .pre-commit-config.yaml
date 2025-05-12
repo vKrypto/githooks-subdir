@@ -38,6 +38,19 @@ repos:
         files: ^project2/
       - id: check-case-conflict  # catch filename conflicts on case-insensitive systems
         files: ^project2/
+      - id: trailing-whitespace
+        files: ^project2/
+      - id: end-of-file-fixer
+        files: ^project2/
+      - id: debug-statements
+        files: ^project2/
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.8
+    hooks:
+      - id: bandit
+        files: ^project2/
+        stages: [pre-push]
 
 # Run specific hooks before pushing changes
   - repo: local
