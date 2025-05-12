@@ -1,12 +1,14 @@
-# pre-commit hooks (run before committing changes)
+# Run specific hooks before committing changes
 repos:
+  # Black: auto-formats Python code
   - repo: https://github.com/psf/black
-    rev: 25.1.0
+    rev: 25.1.0  # specific version of black
     hooks:
       - id: black
-        files: ^project2/
+        files: ^project2/  # restrict to files in project2/
         stages: [pre-commit]
 
+  # isort: sorts Python imports
   - repo: https://github.com/pre-commit/mirrors-isort
     rev: v5.10.1
     hooks:
@@ -14,13 +16,7 @@ repos:
         files: ^project2/
         stages: [pre-commit]
 
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.2.0
-    hooks:
-      - id: flake8
-        files: ^project2/
-        stages: [pre-commit]
-
+  # mypy: static type checker
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.15.0
     hooks:
@@ -28,31 +24,33 @@ repos:
         files: ^project2/
         stages: [pre-commit]
 
+  # Miscellaneous useful pre-commit checks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-      - id: check-added-large-files
+      - id: check-added-large-files  # warn if large files are added
         files: ^project2/
-      - id: check-merge-conflict
+      - id: check-merge-conflict  # check for unresolved merge conflicts
         files: ^project2/
-      - id: check-yaml
+      - id: check-yaml  # validate YAML syntax
         files: ^project2/
-      - id: check-ast
+      - id: check-ast  # ensure Python files are syntactically valid
         files: ^project2/
-      - id: check-case-conflict
+      - id: check-case-conflict  # catch filename conflicts on case-insensitive systems
         files: ^project2/
 
-# pre-push hooks (run before pushing changes)
+# Run specific hooks before pushing changes
   - repo: local
     hooks:
       - id: pytest
-        name: Run Pytest
+        name: Run Pytest  # run tests before pushing
         entry: pytest
-        language: system
+        language: system  # use system-installed pytest
         stages: [pre-push]
         types: [python]
         files: ^project2/
 
+  # flake8: enforces Python PEP style rules:
   - repo: https://github.com/pycqa/flake8
     rev: 7.2.0
     hooks:
@@ -60,6 +58,7 @@ repos:
         files: ^project2/
         stages: [pre-push]
 
+  # mypy (again): ensure static typing checks before pushing, trying enforce type-hints 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.15.0
     hooks:
