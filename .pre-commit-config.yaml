@@ -3,12 +3,16 @@ repos:
     rev: v4.4.0
     hooks:
       - id: end-of-file-fixer
+        files: ^project2/
       - id: trailing-whitespace
+        files: ^project2/
   - repo: https://github.com/psf/black
     rev: 24.4.2
     hooks:
       - id: black
+        files: ^subdir/
   - repo: https://github.com/pre-commit/mirrors-isort
     rev: ''
     hooks:
       - id: isort
+        files: ^project2/
